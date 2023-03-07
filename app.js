@@ -51,7 +51,7 @@ app.use("/api", skillRoute);
 
 //home
 app.use("/", function(req, res) {
-  res.sendFile("./index.html", {
+  res.render("index", {
     title: "Kadek API Service (Error Page)"
   })
 })
