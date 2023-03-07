@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// const cors = require("cors");
+const cors = require("cors");
 // const {decodeToken} = require("./middlewares")
 const productRoute = require("./app/product/router");
 const projectRoute = require("./app/project/router");
@@ -25,7 +25,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// app.use(cors())
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -52,7 +52,7 @@ app.use("/api", skillRoute);
 //home
 app.use("/", function(req, res) {
   res.render("index", {
-    title: "Profile API Service (Error Page)"
+    title: "Kadek API Service (Error Page)"
   })
 })
 
