@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
 
-const productSchema = Schema({
+const projectTigaSchema = Schema({
 
     name: {
         type: String,
@@ -38,4 +38,4 @@ const productSchema = Schema({
 
 }, { timestamps: true });
 
-module.exports = model("Product", productSchema);
+module.exports = model("ProjectTiga", projectTigaSchema);

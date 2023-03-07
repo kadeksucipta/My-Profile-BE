@@ -6,6 +6,9 @@ var logger = require('morgan');
 const cors = require("cors");
 const {decodeToken} = require("./middlewares")
 const productRoute = require("./app/product/router");
+const projectRoute = require("./app/project/router");
+const projectDuaRoute = require("./app/project dua/router");
+const projectTigaRoute = require("./app/project tiga/router");
 const categoryRoute = require("./app/category/router");
 const tagRoute = require("./app/tag/router");
 const authRoute = require("./app/auth/router");
@@ -13,6 +16,7 @@ const deliveryAddressRoute = require("./app/deliveryAddress/router");
 const cartRoute = require("./app/cart/router");
 const orderRoute = require("./app/order/router");
 const invoiceRoute = require("./app/invoice/router");
+const skillRoute = require("./app/skill/router")
 
 
 var app = express();
@@ -32,12 +36,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/api", cartRoute)
 app.use("/auth", authRoute)
+
 app.use("/api", productRoute)
+app.use("/api", projectRoute)
+app.use("/api", projectDuaRoute)
+app.use("/api", projectTigaRoute)
+
 app.use("/api", categoryRoute)
 app.use("/api", tagRoute)
 app.use("/api", deliveryAddressRoute)
 app.use("/api", orderRoute)
 app.use("/api", invoiceRoute);
+app.use("/api", skillRoute);
 
 //home
 app.use("/", function(req, res) {
